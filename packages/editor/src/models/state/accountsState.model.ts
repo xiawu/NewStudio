@@ -14,9 +14,16 @@
 // You should have received a copy of the GNU General Public License
 // along with Superblocks Lab.  If not, see <http://www.gnu.org/licenses/>.
 
-import { IAccount } from './project-state.model';
+import { IAccount, IOpenWallet } from './project-state.model';
 
 export interface IAccountConfigState {
     showAccountConfig: boolean;
     selectedAccount?: IAccount;
+    selectedWallet?: any;
+
+    selectedAccountEnvironment?: {
+        balance?: number;
+        address?: string;
+        locked: boolean;
+    };
 }

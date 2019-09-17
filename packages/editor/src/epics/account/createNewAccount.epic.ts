@@ -47,6 +47,30 @@ export const createNewAccountEpic = (action$: AnyAction, state$: any) => action$
                         wallet: 'private',
                         index: accounts.length
                     }
+                },
+                {
+                    name: 'rinkeby',
+                    data: {
+                        wallet: 'public',
+                    }
+                },
+                {
+                    name: 'ropsten',
+                    data: {
+                        wallet: 'public',
+                    }
+                },
+                {
+                    name: 'kovan',
+                    data: {
+                        wallet: 'public',
+                    }
+                },
+                {
+                    name: 'mainnet',
+                    data: {
+                        wallet: 'public',
+                    }
                 }]
             };
 

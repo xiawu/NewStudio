@@ -20,9 +20,11 @@ import Web3 from 'web3';
 import style from './style.less';
 import { IEnvironment, IAccount } from '../../../../models/state';
 import Networks from '../../../../networks';
+import { walletService } from '../../../../services';
 
 interface IProps {
     environments: IEnvironment[];
+    account: IAccount;
     // selectedAccount: IAccount;
 }
 
@@ -388,6 +390,31 @@ export default class AccountEnvironmentList extends Component<IProps, IState> {
     //     }
     // }
 
+    patata = () => {
+        // TODO - Obviously don't do anything of this here
+        const { account} = this.props;
+        const { selectedEnvironment } = this.state;
+        // if (selectedEnvironment && account.address !== null) {
+        //     walletService.fetchBalance(selectedEnvironment.name, account.address);
+        // }
+
+        if (selectedEnvironment && selectedEnvironment.name === Networks.browser.name) {
+            return (
+                <div>
+                    <p>
+                        <b>Address:</b> {account.address}
+                    </p>
+                    <p>
+                        <b>Balance:</b> {account.balance} wei (
+                        {/* {this.form.balanceFormatted} Ether){' '} */}
+                        {/* {this.form.balanceError} */}
+                    </p>
+                    {/* {unlockDifferentAccountButton} */}
+                </div>
+            );
+}
+    }
+
     render() {
         const { environments } = this.props;
         const { selectedEnvironment } = this.state;
@@ -449,6 +476,7 @@ export default class AccountEnvironmentList extends Component<IProps, IState> {
                     </div>
                     <div className={style.networkInfo}>
                         {/* {accountContent} */}
+                        {this.patata()}
                     </div>
                 </div>
             </div>

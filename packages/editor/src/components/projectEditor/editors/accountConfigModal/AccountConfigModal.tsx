@@ -114,6 +114,7 @@ export default class AccountConfigModal extends Component<IProps, IState> {
                                     </div>
                                     <AccountEnvironmentList
                                         environments={environments}
+                                        account={account}
                                     />
                                 </div>
                             </div>

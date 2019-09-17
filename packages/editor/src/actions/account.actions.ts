@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Superblocks Lab.  If not, see <http://www.gnu.org/licenses/>.
 
-import { IAccount } from '../models/state';
+import { IAccount, IEnvironment } from '../models/state';
 
 export const accountActions = {
 
@@ -109,6 +109,14 @@ export const accountActions = {
         return {
             type: accountActions.DELETE_ACCOUNT_SUCCESS,
             data: { updatedDappFileData: dappFileData }
+        };
+    },
+
+    SELECT_ACCOUNT_ENVIRONMENT: 'SELECT_ACCOUNT_ENVIRONMENT',
+    selectAccountEnvironment(environment: IEnvironment, account: IAccount) {
+        return {
+            type: accountActions.SELECT_ACCOUNT_ENVIRONMENT,
+            data: { environment, account }
         };
     },
 };
