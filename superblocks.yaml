@@ -12,6 +12,7 @@ jobs:
       - echo "$GITHUB_REGISTRY_TOKEN" | docker login docker.pkg.github.com --username $GITHUB_REGISTRY_USER --password-stdin
       - docker build --build-arg BUILD=build:staging -t $GITHUB_REGISTRY_IMAGE:$SUPER_COMMIT_SHA1.staging .
       - docker push $GITHUB_REGISTRY_IMAGE:$SUPER_COMMIT_SHA1.staging
+      
 
   deploy_to_staging:
     image: alpine
